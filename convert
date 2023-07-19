@@ -1,0 +1,10 @@
+#!/bin/bash
+TARGET=$1
+OUTPUT=$2
+FORMAT=$3
+
+list="$(ls $TARGET)"
+for f in $list; do
+    nf="${f%.*}"
+    convert "$TARGET/$f" "$OUTPUT/$nf.$FORMAT"
+done
